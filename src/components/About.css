@@ -1,0 +1,141 @@
+.about {
+  background: var(--bg-white);
+  padding: 80px 20px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text {
+  color: var(--text-dark);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+.about-text p strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 2px solid var(--border-color);
+}
+
+.about .highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: var(--bg-light);
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.about .highlight-item:hover {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(249, 115, 22, 0.08));
+  transform: translateY(-5px);
+}
+
+.highlight-number {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 5px;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.what-i-do {
+  width: min(100%, 380px);
+  background: white;
+  padding: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 16px 45px rgba(16, 32, 31, 0.1);
+}
+
+.tech-stack {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 18px;
+  font-size: 1.25rem;
+}
+
+.focus-list {
+  display: grid;
+  gap: 12px;
+}
+
+.focus-list span {
+  display: block;
+  padding: 14px 16px;
+  border-radius: 8px;
+  color: var(--text-dark);
+  background: var(--bg-light);
+  border-left: 4px solid var(--primary-color);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
+  .what-i-do {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 60px 15px;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .highlight-number {
+    font-size: 1.8rem;
+  }
+
+}

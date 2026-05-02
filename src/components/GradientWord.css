@@ -1,0 +1,15 @@
+/* Gradient Word Animation */
+.gradient-word {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--tertiary-color) 48%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
