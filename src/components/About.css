@@ -1,5 +1,8 @@
 .about {
-  background: var(--bg-white);
+  background:
+    radial-gradient(circle at 12% 76%, rgba(245, 158, 11, 0.1), transparent 24%),
+    radial-gradient(circle at 92% 18%, rgba(124, 58, 237, 0.09), transparent 24%),
+    var(--bg-white);
   padding: 80px 20px;
 }
 
@@ -41,20 +44,21 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: var(--bg-light);
+  background: linear-gradient(135deg, #f8fbff, #fff7ed);
   border-radius: 10px;
   transition: var(--transition);
+  border: 1px solid var(--border-color);
 }
 
 .about .highlight-item:hover {
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(249, 115, 22, 0.08));
-  transform: translateY(-5px);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(124, 58, 237, 0.08), rgba(245, 158, 11, 0.08));
+  transform: translateY(-8px) rotateX(3deg);
 }
 
 .highlight-number {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color), var(--accent-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -74,11 +78,14 @@
 
 .what-i-do {
   width: min(100%, 380px);
-  background: white;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color), var(--accent-color)) border-box;
   padding: 32px;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 16px 45px rgba(16, 32, 31, 0.1);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-3d);
+  transition: var(--transition);
 }
 
 .tech-stack {
@@ -98,9 +105,16 @@
   padding: 14px 16px;
   border-radius: 8px;
   color: var(--text-dark);
-  background: var(--bg-light);
+  background: linear-gradient(135deg, #f8fbff, #fff7ed);
   border-left: 4px solid var(--primary-color);
   font-weight: 600;
+  box-shadow: 0 5px 0 rgba(15, 23, 42, 0.04), 0 12px 22px rgba(15, 23, 42, 0.06);
+  transition: var(--transition);
+}
+
+.focus-list span:hover {
+  border-left-color: var(--secondary-color);
+  transform: translateX(8px) translateZ(18px);
 }
 
 @media (max-width: 768px) {

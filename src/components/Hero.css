@@ -3,7 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #eef8f6 0%, #ffffff 52%, #fff6ef 100%);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(8, 145, 178, 0.2), transparent 28%),
+    radial-gradient(circle at 82% 16%, rgba(244, 63, 94, 0.16), transparent 24%),
+    radial-gradient(circle at 72% 78%, rgba(124, 58, 237, 0.14), transparent 26%),
+    linear-gradient(135deg, #f8fbff 0%, #ffffff 50%, #fff7ed 100%);
   position: relative;
   overflow: hidden;
   padding: 110px 20px 80px;
@@ -24,6 +28,7 @@
   color: var(--text-dark);
   max-width: 650px;
   animation: fadeInLeft 1s ease;
+  transform-style: preserve-3d;
 }
 
 .hero-kicker {
@@ -31,10 +36,11 @@
   padding: 8px 14px;
   border: 1px solid rgba(15, 118, 110, 0.18);
   border-radius: 999px;
-  background: rgba(15, 118, 110, 0.08);
+  background: rgba(8, 145, 178, 0.1);
   color: var(--primary-color);
   font-weight: 700;
   margin-bottom: 18px;
+  box-shadow: 0 8px 0 rgba(8, 145, 178, 0.08), 0 18px 35px rgba(8, 145, 178, 0.1);
 }
 
 .hero-title {
@@ -46,7 +52,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color), var(--accent-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -92,17 +98,19 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  transform-style: preserve-3d;
 }
 
 .btn-primary {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color));
   color: white;
-  box-shadow: 0 14px 30px rgba(15, 118, 110, 0.22);
+  box-shadow: 0 8px 0 #0e7490, 0 18px 34px rgba(8, 145, 178, 0.28);
 }
 
 .btn-primary:hover {
-  background: #115e59;
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  transform: translateY(-6px) rotateX(6deg);
+  box-shadow: 0 12px 0 #0e7490, 0 28px 44px rgba(124, 58, 237, 0.26);
 }
 
 .btn-secondary {
@@ -115,7 +123,7 @@
 .btn-outline:hover {
   border-color: var(--secondary-color);
   color: var(--secondary-color);
-  transform: translateY(-3px);
+  transform: translateY(-6px) rotateX(5deg);
   box-shadow: 0 12px 28px rgba(16, 32, 31, 0.1);
 }
 
@@ -149,13 +157,14 @@
   color: var(--primary-color);
   font-size: 1.25rem;
   transition: var(--transition);
-  box-shadow: 0 8px 22px rgba(16, 32, 31, 0.08);
+  box-shadow: 0 7px 0 rgba(8, 145, 178, 0.12), 0 14px 24px rgba(16, 32, 31, 0.1);
+  transform-style: preserve-3d;
 }
 
 .social-icon:hover {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
-  transform: translateY(-5px);
+  transform: translateY(-7px) rotateX(8deg) rotateY(-8deg);
 }
 
 .hero-image {
@@ -165,12 +174,19 @@
   align-items: center;
   justify-content: center;
   animation: fadeInRight 1s ease;
+  perspective: 1000px;
 }
 
 .profile-panel {
   width: min(100%, 430px);
   display: grid;
   gap: 18px;
+  transform-style: preserve-3d;
+  animation: profileFloat3d 5s ease-in-out infinite;
+}
+
+.profile-panel:hover {
+  transform: rotateX(4deg) rotateY(-6deg) translateY(-8px);
 }
 
 .profile-photo {
@@ -183,10 +199,11 @@
   place-items: center;
   overflow: hidden;
   border: 8px solid white;
-  background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color));
   color: white;
-  box-shadow: 0 20px 45px rgba(16, 32, 31, 0.16);
+  box-shadow: 0 14px 0 rgba(8, 145, 178, 0.2), 0 28px 58px rgba(124, 58, 237, 0.22);
   z-index: 2;
+  transform: translateZ(50px);
 }
 
 .profile-photo img {
@@ -205,11 +222,27 @@
 }
 
 .profile-card {
-  background: white;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color), var(--accent-color)) border-box;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 78px 32px 30px;
-  box-shadow: 0 24px 60px rgba(16, 32, 31, 0.12);
+  border-color: transparent;
+  box-shadow: 0 18px 0 rgba(124, 58, 237, 0.09), 0 32px 70px rgba(16, 32, 31, 0.15);
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(20px);
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.85) 45%, transparent 62%);
+  transform: translateX(-110%);
+  animation: profileShine 4.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .profile-label {
@@ -234,8 +267,9 @@
 .profile-focus span {
   padding: 14px;
   border-radius: 8px;
-  background: var(--bg-light);
+  background: linear-gradient(135deg, #f8fbff, #fff7ed);
   border: 1px solid var(--border-color);
+  box-shadow: 0 6px 0 rgba(15, 23, 42, 0.04), 0 12px 24px rgba(15, 23, 42, 0.07);
 }
 
 .profile-stats strong {
@@ -311,6 +345,16 @@
 @keyframes fadeInRight {
   from { opacity: 0; transform: translateX(40px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes profileFloat3d {
+  0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+  50% { transform: translateY(-14px) rotateX(3deg) rotateY(-4deg); }
+}
+
+@keyframes profileShine {
+  0%, 45% { transform: translateX(-110%); }
+  75%, 100% { transform: translateX(110%); }
 }
 
 @media (max-width: 1024px) {

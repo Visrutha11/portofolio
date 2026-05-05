@@ -18,12 +18,12 @@ const Hero = ({ setActiveSection }) => {
     <section id="home" className="hero">
       <div className="container hero-container">
         <div className="hero-content slide-in-up">
-          <p className="hero-kicker">Full Stack Developer</p>
+          <p className="hero-kicker">Software Engineer</p>
           <h1 className="hero-title">
             Hi, I'm <span className="gradient-text">Visrutha U S</span>
           </h1>
           <p className="hero-subtitle">
-            <TypingEffect text="Software Engineer | Full Stack Developer" speed={60} />
+            <TypingEffect text="Full Stack Developer" speed={60} />
           </p>
           <p className="hero-tagline">
             Full Stack Developer with 2+ years of experience specializing in React.js and Node.js,
@@ -62,8 +62,8 @@ const Hero = ({ setActiveSection }) => {
               <span className="profile-initials">VU</span>
             </div>
             <div className="profile-card">
-              <p className="profile-label">Available for full stack roles</p>
-              <h2>React.js, Node.js, Java</h2>
+              <p className="profile-label">Available for Developer roles</p>
+              <h2>React.js, Node.js, Java, MySQL, MongoDB, Firebase,ORM</h2>
               <div className="profile-stats">
                 <div>
                   <strong>2+</strong>

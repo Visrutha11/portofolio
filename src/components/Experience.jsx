@@ -6,21 +6,22 @@ import { FaBriefcase, FaCalendar, FaGraduationCap, FaCertificate } from 'react-i
 
 const Experience = () => {
   const experienceData = [
-    {
-      title: 'Software Engineer',
-      company: 'MayimDazzle India Private Limited',
-      duration: 'Mar 2024 - Present',
-      responsibilities: [
-        'Developed scalable web applications using React.js',
-        'Built secure RESTful APIs using Node.js and Express.js',
-        'Integrated frontend and backend systems efficiently',
-        'Managed MySQL databases with optimized queries',
-        'Implemented Cypress testing to improve reliability',
-        'Contributed to CI/CD pipelines for faster deployment',
-        'Followed clean architecture and Git-based version control',
-        'Worked in Agile/Scrum environments'
-      ]
-    }
+{
+  title: 'Software Engineer',
+  company: 'MayimDazzle India Private Limited',
+  duration: 'Mar 2024 - Present',
+  responsibilities: [
+    'Developed scalable and responsive web applications using React.js and Material-UI (MUI)',
+    'Built robust and secure RESTful APIs using Node.js and Express.js with strong backend architecture',
+    'Integrated frontend and backend systems to ensure seamless and efficient data flow',
+    'Designed and managed MySQL databases, including schema design and query optimization',
+    'Implemented input validation, authentication, and error handling for reliable API performance',
+    'Performed API testing using Postman and end-to-end testing using Cypress',
+    'Contributed to CI/CD pipelines for faster and reliable deployments',
+    'Followed clean architecture, modular coding practices, and Git-based version control',
+    'Collaborated in Agile/Scrum environments with cross-functional teams'
+  ]
+}
   ]
 
   const containerVariants = {

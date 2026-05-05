@@ -2,7 +2,19 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import './Skills.css'
 import './GradientWord.css'
-import { FaCode, FaReact, FaNode, FaJava, FaDatabase, FaTools, FaVial } from 'react-icons/fa'
+import {
+  FaCode,
+  FaReact,
+  FaNode,
+  FaJava,
+  FaDatabase,
+  FaTools,
+  FaVial,
+  FaPalette,
+  FaChartLine,
+  FaMagic,
+  FaFilm
+} from 'react-icons/fa'
 
 const Skills = () => {
   const skillsData = [
@@ -15,6 +27,26 @@ const Skills = () => {
       category: 'Frontend',
       icon: FaReact,
       skills: ['React.js', 'Material UI (MUI)', 'HTML5', 'CSS3']
+    },
+    {
+      category: 'UI/UX Design',
+      icon: FaPalette,
+      skills: ['User Interface Design', 'User Experience Flows', 'Wireframing', 'Prototyping', 'Responsive Layouts']
+    },
+    {
+      category: 'SaaS Product UI',
+      icon: FaChartLine,
+      skills: ['Dashboard Design', 'Admin Panels', 'Design Systems', 'Data Visualization', 'UX Writing']
+    },
+    {
+      category: 'Creative Editing',
+      icon: FaMagic,
+      skills: ['Canva Design', 'Photo Editing', 'Social Media Creatives', 'Brand Assets', 'Presentation Design']
+    },
+    {
+      category: 'UI Animation',
+      icon: FaFilm,
+      skills: ['Framer Motion', 'Micro-interactions', 'Scroll Reveals', 'Hover Effects', 'Animated UI States']
     },
     {
       category: 'Backend',
@@ -39,7 +71,7 @@ const Skills = () => {
     {
       category: 'Testing & DevOps',
       icon: FaVial,
-      skills: ['Cypress (End-to-End Testing)', 'CI/CD Pipelines']
+      skills: ['Postman API Testing', 'API Test Collections', 'Cypress (End-to-End Testing)', 'CI/CD Pipelines']
     }
   ]
 
@@ -60,8 +92,19 @@ const Skills = () => {
     }
   }
 
+  const itemVariants = {
+    hidden: { opacity: 0, x: -12 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.35 }
+    }
+  }
+
   return (
     <section id="skills" className="skills">
+      <div className="skills-orbit orbit-one"></div>
+      <div className="skills-orbit orbit-two"></div>
       <div className="container">
         <motion.div
           className="section-title slide-in-up"
@@ -97,7 +140,7 @@ const Skills = () => {
                 </h3>
                 <ul className="skill-list">
                   {skillGroup.skills.map((skill) => (
-                    <motion.li key={skill} className="skill-item" viewport={{ once: true }}>
+                    <motion.li key={skill} className="skill-item" variants={itemVariants} viewport={{ once: true }}>
                       <span className="skill-dot"></span>
                       {skill}
                     </motion.li>
@@ -116,7 +159,8 @@ const Skills = () => {
           viewport={{ once: true }}
         >
           <div className="highlight-text">
-            Crafting clean, efficient, and user-friendly web experiences with modern full-stack tools.
+            Crafting clean, efficient, animated, and user-friendly web experiences with full-stack,
+            UI/UX, SaaS, and creative editing skills.
           </div>
         </motion.div>
       </div>

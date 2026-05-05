@@ -5,23 +5,29 @@
 }
 
 :root {
-  --primary-color: #0f766e;
-  --secondary-color: #f97316;
-  --tertiary-color: #2563eb;
-  --text-dark: #10201f;
-  --text-light: #5f6f6d;
-  --bg-light: #f4f8f7;
+  --primary-color: #0891b2;
+  --secondary-color: #f43f5e;
+  --tertiary-color: #7c3aed;
+  --accent-color: #f59e0b;
+  --text-dark: #101828;
+  --text-light: #64748b;
+  --bg-light: #f8fbff;
   --bg-white: #ffffff;
-  --bg-dark: #0b1f1d;
-  --border-color: #dce8e5;
-  --success: #16a34a;
+  --bg-dark: #111827;
+  --border-color: #dbe5f1;
+  --success: #10b981;
+  --shadow-3d: 0 18px 0 rgba(15, 23, 42, 0.06), 0 28px 65px rgba(15, 23, 42, 0.16);
+  --shadow-3d-hover: 0 12px 0 rgba(8, 145, 178, 0.1), 0 36px 80px rgba(124, 58, 237, 0.2);
   --transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-dark);
-  background-color: var(--bg-light);
+  background:
+    radial-gradient(circle at top left, rgba(8, 145, 178, 0.14), transparent 34%),
+    radial-gradient(circle at top right, rgba(244, 63, 94, 0.12), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #fff7ed 48%, #f5f3ff 100%);
   line-height: 1.6;
 }
 
@@ -74,6 +80,41 @@ button {
   cursor: pointer;
   border: none;
   transition: var(--transition);
+}
+
+.skill-card,
+.project-card,
+.contact-card,
+.profile-card,
+.what-i-do,
+.about .highlight-item,
+.skills-highlight,
+.timeline-content,
+.credential-card,
+.objective-section,
+.why-hire-section,
+.hire-point,
+.contact-form,
+.contact-item {
+  transform-style: preserve-3d;
+  box-shadow: var(--shadow-3d);
+}
+
+.skill-card:hover,
+.project-card:hover,
+.contact-card:hover,
+.profile-card:hover,
+.what-i-do:hover,
+.about .highlight-item:hover,
+.timeline-content:hover,
+.credential-card:hover,
+.objective-section:hover,
+.why-hire-section:hover,
+.hire-point:hover,
+.contact-form:hover,
+.contact-item:hover {
+  transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+  box-shadow: var(--shadow-3d-hover);
 }
 
 /* Animations */

@@ -1,6 +1,45 @@
 .skills {
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.06), rgba(249, 115, 22, 0.05));
+  background:
+    radial-gradient(circle at 10% 18%, rgba(8, 145, 178, 0.14), transparent 26%),
+    radial-gradient(circle at 90% 74%, rgba(244, 63, 94, 0.12), transparent 24%),
+    linear-gradient(135deg, rgba(8, 145, 178, 0.06), rgba(124, 58, 237, 0.05), rgba(245, 158, 11, 0.06));
   padding: 80px 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(124, 58, 237, 0.12), transparent 24%),
+    radial-gradient(circle at 88% 72%, rgba(244, 63, 94, 0.12), transparent 22%);
+  animation: skillsGlow 8s ease-in-out infinite alternate;
+}
+
+.skills-orbit {
+  position: absolute;
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.orbit-one {
+  width: 220px;
+  height: 220px;
+  top: 90px;
+  left: -110px;
+  animation: slowSpin 18s linear infinite;
+}
+
+.orbit-two {
+  width: 320px;
+  height: 320px;
+  right: -180px;
+  bottom: 80px;
+  animation: slowSpin 24s linear infinite reverse;
 }
 
 .skills-grid {
@@ -19,12 +58,46 @@
   text-align: center;
   border-top: 4px solid transparent;
   background: linear-gradient(white, white) padding-box,
-              linear-gradient(135deg, var(--primary-color), var(--secondary-color)) border-box;
+              linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color), var(--accent-color)) border-box;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.08), rgba(124, 58, 237, 0.06), rgba(244, 63, 94, 0.08), rgba(245, 158, 11, 0.07));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: -38px;
+  top: -38px;
+  border-radius: 50%;
+  border: 18px solid rgba(15, 118, 110, 0.07);
+  transition: var(--transition);
 }
 
 .skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(15, 118, 110, 0.16);
+  transform: translateY(-12px) rotateX(3deg) rotateY(-3deg);
+  box-shadow: var(--shadow-3d-hover);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-card:hover::after {
+  transform: scale(1.25) rotate(24deg);
+  border-color: rgba(249, 115, 22, 0.11);
 }
 
 .skill-icon {
@@ -36,7 +109,7 @@
 
 .skill-card:hover .skill-icon {
   color: var(--secondary-color);
-  transform: scale(1.2) rotate(10deg);
+  transform: translateZ(24px) scale(1.2) rotate(10deg);
 }
 
 .skill-category {
@@ -48,27 +121,36 @@
 .skill-list {
   list-style: none;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .skill-item {
-  padding: 8px 0;
+  padding: 9px 12px;
   color: var(--text-light);
   font-size: 0.95rem;
   display: flex;
   align-items: center;
   gap: 10px;
   transition: var(--transition);
+  background: linear-gradient(135deg, rgba(248, 251, 255, 0.92), rgba(255, 247, 237, 0.74));
+  border: 1px solid rgba(220, 232, 229, 0.8);
+  border-radius: 999px;
 }
 
 .skill-item:hover {
   color: var(--primary-color);
   transform: translateX(5px);
+  background: white;
+  border-color: rgba(15, 118, 110, 0.24);
+  box-shadow: 0 8px 18px rgba(15, 118, 110, 0.08);
 }
 
 .skill-dot {
   width: 6px;
   height: 6px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
   border-radius: 50%;
   display: inline-block;
   flex-shrink: 0;
@@ -81,12 +163,24 @@
   border-radius: 12px;
   border: 2px solid var(--border-color);
   margin-top: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-highlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(15, 118, 110, 0.08), transparent);
+  transform: translateX(-100%);
+  animation: highlightSweep 4s ease-in-out infinite;
 }
 
 .highlight-text {
   font-size: 1.2rem;
   color: var(--text-dark);
   line-height: 1.8;
+  position: relative;
 }
 
 .highlight-text strong {
@@ -121,7 +215,7 @@
 
   .skill-item {
     font-size: 0.9rem;
-    padding: 6px 0;
+    padding: 8px 10px;
   }
 
   .highlight-text {
@@ -144,5 +238,31 @@
 
   .highlight-text {
     font-size: 0.95rem;
+  }
+}
+
+@keyframes skillsGlow {
+  from {
+    opacity: 0.6;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes slowSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes highlightSweep {
+  0%, 45% {
+    transform: translateX(-100%);
+  }
+  75%, 100% {
+    transform: translateX(100%);
   }
 }

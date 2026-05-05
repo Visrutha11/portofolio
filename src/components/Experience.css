@@ -1,5 +1,8 @@
 .experience {
-  background: white;
+  background:
+    radial-gradient(circle at 8% 28%, rgba(244, 63, 94, 0.08), transparent 24%),
+    radial-gradient(circle at 88% 68%, rgba(8, 145, 178, 0.1), transparent 26%),
+    white;
   padding: 80px 20px;
 }
 
@@ -28,7 +31,7 @@
 .timeline-marker {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color), var(--secondary-color));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -36,26 +39,26 @@
   color: white;
   font-size: 1.3rem;
   flex-shrink: 0;
-  box-shadow: 0 5px 15px rgba(15, 118, 110, 0.24);
+  box-shadow: 0 7px 0 rgba(8, 145, 178, 0.16), 0 16px 28px rgba(124, 58, 237, 0.18);
   transition: var(--transition);
 }
 
 .timeline-item:hover .timeline-marker {
-  transform: scale(1.15);
-  box-shadow: 0 8px 25px rgba(15, 118, 110, 0.34);
+  transform: translateZ(28px) scale(1.15) rotate(10deg);
+  box-shadow: 0 10px 0 rgba(8, 145, 178, 0.18), 0 24px 38px rgba(244, 63, 94, 0.18);
 }
 
 .timeline-content {
   flex: 1;
   padding: 20px;
-  background: var(--bg-light);
+  background: linear-gradient(135deg, #f8fbff, #fff7ed);
   border-radius: 10px;
   transition: var(--transition);
+  border: 1px solid var(--border-color);
 }
 
 .timeline-item:hover .timeline-content {
   background: white;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   border-left: 4px solid var(--primary-color);
 }
 
@@ -113,7 +116,7 @@
 }
 
 .objective-section {
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.1), rgba(249, 115, 22, 0.08));
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.12), rgba(124, 58, 237, 0.09), rgba(245, 158, 11, 0.1));
   padding: 30px 40px;
   border-radius: 10px;
   border-left: 4px solid var(--primary-color);
@@ -127,7 +130,7 @@
 }
 
 .credential-card {
-  background: var(--bg-light);
+  background: linear-gradient(135deg, #f8fbff, #f5f3ff);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 26px;
