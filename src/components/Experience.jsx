@@ -7,19 +7,20 @@ import { FaBriefcase, FaCalendar, FaGraduationCap, FaCertificate } from 'react-i
 const Experience = () => {
   const experienceData = [
 {
-  title: 'Software Engineer',
+  title: 'Software Engineer (Web & Mobile App Developer)',
   company: 'MayimDazzle India Private Limited',
   duration: 'Mar 2024 - Present',
   responsibilities: [
-    'Developed scalable and responsive web applications using React.js and Material-UI (MUI)',
-    'Built robust and secure RESTful APIs using Node.js and Express.js with strong backend architecture',
-    'Integrated frontend and backend systems to ensure seamless and efficient data flow',
+    'Developed scalable web applications using React.js and Material-UI (MUI)',
+    'Built and optimized mobile-friendly and responsive applications for cross-device compatibility',
+    'Developed robust and secure RESTful APIs using Node.js and Express.js',
+    'Worked on backend services using Spring Boot and Hibernate for enterprise applications',
+    'Integrated frontend (web/mobile) with backend systems for seamless data flow',
     'Designed and managed MySQL databases, including schema design and query optimization',
-    'Implemented input validation, authentication, and error handling for reliable API performance',
+    'Implemented authentication, validation, and error handling for secure applications',
     'Performed API testing using Postman and end-to-end testing using Cypress',
-    'Contributed to CI/CD pipelines for faster and reliable deployments',
-    'Followed clean architecture, modular coding practices, and Git-based version control',
-    'Collaborated in Agile/Scrum environments with cross-functional teams'
+    'Contributed to CI/CD pipelines for efficient build and deployment',
+    'Followed clean architecture and Git-based version control in Agile/Scrum environment'
   ]
 }
   ]

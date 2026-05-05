@@ -20,7 +20,7 @@ const Hero = ({ setActiveSection }) => {
         <div className="hero-content slide-in-up">
           <p className="hero-kicker">Software Engineer</p>
           <h1 className="hero-title">
-            Hi, I'm <span className="gradient-text">Visrutha U S</span>
+            Hi, I'm <span className="gradient-text">Visrutha US</span>
           </h1>
           <p className="hero-subtitle">
             <TypingEffect text="Full Stack Developer" speed={60} />
